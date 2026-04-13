@@ -135,7 +135,7 @@ const defaultSetting: LX.AppSetting = {
   'network.proxy.host': '',
   'network.proxy.port': '',
 
-  'tray.enable': false,
+  'tray.enable': true,
   // 'tray.isToTray': false,
   'tray.themeId': 0,
 
