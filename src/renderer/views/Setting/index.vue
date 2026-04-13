@@ -39,8 +39,7 @@
         <SettingOdc />
         <SettingBackup />
         <SettingOther />
-        <SettingUpdate />
-        <SettingAbout /> -->
+        <SettingUpdate /> -->
       </dl>
     </div>
   </div>

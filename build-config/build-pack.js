@@ -9,14 +9,14 @@ const afterPack = require('./build-after-pack')
 * @see https://www.electron.build/configuration/configuration
 */
 const options = {
-  appId: 'cn.toside.music.desktop',
+  appId: 'com.savior.music.desktop',
   productName: 'Savior-music',
   beforePack,
   afterPack,
   protocols: {
-    name: 'lx-music-protocol',
+    name: 'savior-music-protocol',
     schemes: [
-      'lxmusic',
+      'saviormusic',
     ],
   },
   directories: {
@@ -44,13 +44,6 @@ const options = {
   extraResources: [
     './licenses',
   ],
-  publish: [
-    {
-      provider: 'github',
-      owner: 'lyswhut',
-      repo: 'lx-music-desktop',
-    },
-  ],
 }
 /**
  * @type {import('electron-builder').Configuration}
@@ -59,7 +52,7 @@ const options = {
 const winOptions = {
   win: {
     icon: './resources/icons/icon.ico',
-    legalTrademarks: 'lyswhut',
+    legalTrademarks: 'Savior',
     // artifactName: '${productName}-v${version}-${env.ARCH}-${env.TARGET}.${ext}',
   },
   nsis: {
@@ -77,7 +70,7 @@ const winOptions = {
  */
 const linuxOptions = {
   linux: {
-    maintainer: 'lyswhut <lyswhut@qq.com>',
+    maintainer: 'Savior <savior199812@users.noreply.gitee.com>',
     // artifactName: '${productName}-${version}.${env.ARCH}.${ext}',
     icon: './resources/icons',
     category: 'Utility;AudioVideo;Audio;Player;Music;',
@@ -87,11 +80,11 @@ const linuxOptions = {
       // https://specifications.freedesktop.org/desktop-entry-spec/latest/example.html
       // https://developer.gnome.org/documentation/guidelines/maintainer/integrating.html#desktop-files
       entry: {
-        Name: 'LX Music',
-        'Name[zh_CN]': 'LX Music',
-        'Name[zh_TW]': 'LX Music',
+        Name: 'Savior Music',
+        'Name[zh_CN]': 'Savior Music',
+        'Name[zh_TW]': 'Savior Music',
         Encoding: 'UTF-8',
-        MimeType: 'x-scheme-handler/lxmusic',
+        MimeType: 'x-scheme-handler/saviormusic',
         StartupNotify: 'false',
       },
     },
@@ -128,7 +121,7 @@ const macOptions = {
         path: '/Applications',
       },
     ],
-    title: 'LX Music v${version}',
+    title: 'Savior Music v${version}',
   },
 }
 
