@@ -44,6 +44,13 @@ const options = {
   extraResources: [
     './licenses',
   ],
+  publish: [
+    {
+      provider: 'generic',
+      url: 'https://gitee.com/savior199812/z-music/raw/main/build',
+      channel: 'latest',
+    },
+  ],
 }
 /**
  * @type {import('electron-builder').Configuration}
