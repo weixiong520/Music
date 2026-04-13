@@ -13,19 +13,11 @@ material-modal(:show="isShowChangeLog" max-width="60%" @close="isShowChangeLog =
         div(v-for="(ver, index) in info.history" :key="index" :class="$style.item")
           h4 v{{ ver.version }}
           pre(v-text="ver.desc")
-
-    div(:class="$style.footer")
-      div(:class="$style.desc")
-        p 📢&nbsp;为了减少疑问，我们墙裂建议阅读版本更新日志来了解当前所用版本的变化！
-        p 📢&nbsp;若遇到问题可以阅读
-          strong.hover.underline(aria-label="点击打开" @click="openUrl('https://lyswhut.github.io/lx-music-doc/desktop/faq')") 桌面版常见问题
-          | 。
-        p(v-if="!info.isLatest") 🚀&nbsp;发现新版本 (v{{ versionInfo.newVersion.version }})！建议去「设置 → 软件更新」更新新版本。
 </template>
 
 <script>
 import { compareVer } from '@common/utils'
-import { openUrl, clipboardWriteText } from '@common/utils/electron'
+import { clipboardWriteText } from '@common/utils/electron'
 import { versionInfo, isShowChangeLog } from '@renderer/store'
 import { getLastStartInfo } from '@renderer/utils/ipc'
 import { computed, ref } from '@common/utils/vueTools'
@@ -37,10 +29,19 @@ export default {
       lastStartVersion.value = version
     })
 
+    const normalizeDesc = desc => {
+      if (!desc) return ''
+      return desc
+        .replace(/^[\s\S]*?(?=^\s*(?:新增|优化|修复|变更|移除|其他|开放API变更|不兼容性变更|不兼容性变更说明)\s*$)/m, '')
+        .replace(/\s*[（(]#\d+[^）)]*[）)]/g, '')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim()
+    }
+
     const info = computed(() => {
-      let currentVer = process.versions.app
-      let lastStartVer = lastStartVersion.value
-      let info = {
+      const currentVer = process.versions.app
+      const lastStartVer = lastStartVersion.value
+      const info = {
         version: '',
         desc: '',
         history: [],
@@ -56,17 +57,22 @@ export default {
           switch (compareVer(ver.version, currentVer)) {
             case 0:
               info.version = ver.version
-              info.desc = ver.desc
+              info.desc = normalizeDesc(ver.desc)
               break
             case -1:
-              if (compareVer(lastStartVer, ver.version) < 0) info.history.push(ver)
+              if (compareVer(lastStartVer, ver.version) < 0) {
+                info.history.push({
+                  ...ver,
+                  desc: normalizeDesc(ver.desc),
+                })
+              }
           }
         }
       } else {
         const verInfo = history.find(v => v.version == currentVer)
         if (verInfo) {
           info.version = verInfo.version
-          info.desc = verInfo.desc
+          info.desc = normalizeDesc(verInfo.desc)
         } else {
           info.desc = '未找到当前版本的更新日志'
           info.version = currentVer
@@ -76,7 +82,6 @@ export default {
       return info
     })
     return {
-      openUrl,
       clipboardWriteText,
       versionInfo,
       info,
@@ -93,13 +98,11 @@ export default {
 .main {
   position: relative;
   padding: 15px 0;
-  // max-width: 450px;
   min-width: 300px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   overflow: hidden;
-  // overflow-y: auto;
   * {
     box-sizing: border-box;
   }
@@ -173,39 +176,5 @@ export default {
       padding-left: 15px;
     }
   }
-
 }
-.footer {
-  flex: 0 0 none;
-  padding: 0 15px;
-  .desc {
-    padding-top: 20px;
-    font-size: 13px;
-    color: var(--color-primary-font);
-    line-height: 1.25;
-
-    p {
-      font-size: 13px;
-      color: var(--color-primary-font);
-      line-height: 1.25;
-    }
-  }
-}
-// .btns {
-//   display: flex;
-//   flex-flow: row nowrap;
-//   gap: 15px;
-// }
-
-// .btn {
-//   margin-top: 10px;
-//   display: block;
-//   width: 100%;
-// }
-// .btn2 {
-//   margin-top: 10px;
-//   display: block;
-//   width: 50%;
-// }
-
 </style>
