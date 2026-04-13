@@ -1,10 +1,6 @@
-# lx-music-desktop change log
+# Savior 更新日志
 
-All notable changes to this project will be documented in this file.
-
-Project versioning adheres to [Semantic Versioning](http://semver.org/).
-Commit convention is based on [Conventional Commits](http://conventionalcommits.org).
-Change log format is based on [Keep a Changelog](http://keepachangelog.com/).
+本文档记录 Savior 项目的版本更新说明。
 
 ## [2.12.1](https://github.com/lyswhut/lx-music-desktop/compare/v2.12.0...v2.12.1) - 2026-02-16
 
@@ -19,6 +15,7 @@ Change log format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 修复音量条在调整音量时实际音量与显示的数值不一致的问题（#2606）
 - 修复某些情况下搜索框的搜索按钮布局错位的问题（#2622）
+- 调整搜索页标签选中横条与标题之间的间距，将底部内边距由 `8px` 调整为 `4px`
 
 ## [2.12.0](https://github.com/lyswhut/lx-music-desktop/compare/v2.11.0...v2.12.0) - 2025-11-29
 
