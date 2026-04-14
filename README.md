@@ -1,6 +1,6 @@
 # Savior
 
-Savior 是一个基于 Electron 和 Vue 3 的桌面音乐应用项目。
+Savior-Music 是一个基于 Electron 和 Vue 3 的桌面音乐应用项目。
 
 ## 项目地址
 
