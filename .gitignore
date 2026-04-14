@@ -64,8 +64,6 @@ typings/
 
 build/*
 !build/latest.yml
-!build/*.exe
-!build/*.exe.blockmap
 
 dist
 
