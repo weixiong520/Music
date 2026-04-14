@@ -46,9 +46,9 @@ const options = {
   ],
   publish: [
     {
-      provider: 'generic',
-      url: 'https://gitee.com/savior199812/z-music/raw/main/build',
-      channel: 'latest',
+      provider: 'github',
+      owner: 'weixiong520',
+      repo: 'Music',
     },
   ],
 }

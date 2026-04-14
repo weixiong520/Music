@@ -4,7 +4,7 @@ Savior 是一个基于 Electron 和 Vue 3 的桌面音乐应用项目。
 
 ## 项目地址
 
-- Gitee 仓库：https://gitee.com/savior199812/z-music.git
+- Gitee 仓库：https://github.com/weixiong520/Music.git
 
 ## 技术栈
 

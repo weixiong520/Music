@@ -3,7 +3,7 @@ import { httpGet } from './request'
 // TODO add Notice
 
 const address = [
-  ['https://gitee.com/savior199812/z-music/raw/main/publish/version.json', 'direct'],
+  ['https://raw.githubusercontent.com/weixiong520/Music/main/publish/version.json', 'direct'],
 ]
 
 const request = async(url, retryNum = 0) => {
