@@ -39,7 +39,7 @@ typings/
 
 # 打包与发布产物
 *.tgz
-/build/
+build
 dist
 publish/assets
 
