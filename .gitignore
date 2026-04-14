@@ -63,7 +63,6 @@ typings/
 
 
 build/*
-!build/latest.yml
 
 dist
 

@@ -77,7 +77,7 @@ const winOptions = {
  */
 const linuxOptions = {
   linux: {
-    maintainer: 'Savior <savior199812@users.noreply.gitee.com>',
+    maintainer: 'Savior <weixiong520@users.noreply.github.com>',
     // artifactName: '${productName}-${version}.${env.ARCH}.${ext}',
     icon: './resources/icons',
     category: 'Utility;AudioVideo;Audio;Player;Music;',

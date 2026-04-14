@@ -4,7 +4,7 @@ Savior 是一个基于 Electron 和 Vue 3 的桌面音乐应用项目。
 
 ## 项目地址
 
-- Gitee 仓库：https://github.com/weixiong520/Music.git
+- GitHub 仓库：https://github.com/weixiong520/Music.git
 
 ## 技术栈
 
@@ -97,7 +97,7 @@ Savior-music/
 
 ## 当前状态
 
-- 已完成仓库初始化并推送到 Gitee
+- 已完成仓库初始化并推送到 GitHub
 - 已统一应用品牌、打包名称与更新源
 - 已移除设置页中的“关于”入口
 - 本地开发环境可正常启动
