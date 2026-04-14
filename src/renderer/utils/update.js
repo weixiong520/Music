@@ -1,5 +1,4 @@
 import { httpGet } from './request'
-import pkg from '../../../package.json'
 
 // TODO add Notice
 
@@ -29,7 +28,7 @@ const getDirectInfo = async(url) => {
 }
 
 export const getVersionInfo = async(index = 0) => {
-  const [url, source] = address[index]
+  const [url] = address[index]
   const promise = getDirectInfo(url)
 
   return promise.catch(async(err) => {

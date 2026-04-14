@@ -1,8 +1,8 @@
-version: 2.12.1
+version: 2.12.2
 files:
-  - url: Savior-music-v2.12.1-x64-Setup.exe
-    sha512: LZ5I1drhuA4qmHmaA/tIyFgNbB1xGFDPMP8WK0CXytyPUg++3RoZayQ/7x3UqGZBVUR/HOyzYulLKvXqe1DSzg==
-    size: 97870517
-path: Savior-music-v2.12.1-x64-Setup.exe
-sha512: LZ5I1drhuA4qmHmaA/tIyFgNbB1xGFDPMP8WK0CXytyPUg++3RoZayQ/7x3UqGZBVUR/HOyzYulLKvXqe1DSzg==
-releaseDate: '2026-04-13T14:42:59.941Z'
+  - url: Savior-music-v2.12.2-x64-Setup.exe
+    sha512: ukYiAibrFt9JOTh75adbPw9Y4xNqWwWSQ+lQyv5jNkcOTsDj5MCFwHf1DDC0s8j6YOIdDg/PgFfqzhJ5qkmmBQ==
+    size: 97866285
+path: Savior-music-v2.12.2-x64-Setup.exe
+sha512: ukYiAibrFt9JOTh75adbPw9Y4xNqWwWSQ+lQyv5jNkcOTsDj5MCFwHf1DDC0s8j6YOIdDg/PgFfqzhJ5qkmmBQ==
+releaseDate: '2026-04-14T06:23:08.475Z'

@@ -1,6 +1,6 @@
 {
   "name": "savior-music",
-  "version": "2.12.1",
+  "version": "2.12.2",
   "description": "Savior Music 桌面音乐应用",
   "main": "./dist/main.js",
   "scripts": {

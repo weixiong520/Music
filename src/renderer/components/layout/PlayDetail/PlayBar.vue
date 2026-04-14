@@ -24,7 +24,7 @@
         <svg v-if="isPlay" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" height="100%" viewBox="0 0 1024 1024" space="preserve">
           <use xlink:href="#icon-pause" />
         </svg>
-        <svg v-else version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" height="100%" viewBox="0 0 1024 1024" space="preserve">
+        <svg v-else :class="$style.playIcon" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" height="100%" viewBox="0 0 1024 1024" space="preserve">
           <use xlink:href="#icon-play" />
         </svg>
       </div>
@@ -138,6 +138,11 @@ const {
   &:active {
     opacity: 0.6;
   }
+}
+
+.playIcon {
+  transform: translate(1px, 0.8px) scale(1.06);
+  transform-origin: center;
 }
 
 </style>

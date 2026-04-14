@@ -7,6 +7,16 @@ import { APP_EVENT_NAMES, DATA_KEYS, DEFAULT_SETTING } from '@common/constants'
 
 type RemoveListener = () => void
 
+const migrateLeaderboardSetting = (setting: typeof DEFAULT_SETTING['leaderboard']) => {
+  if (setting.source == 'kw' && setting.boardId == 'kw__16') return { ...DEFAULT_SETTING.leaderboard }
+  return setting
+}
+
+const migrateSongListSetting = (setting: typeof DEFAULT_SETTING['songList']) => {
+  if (setting.source == 'kw' && setting.sortId == 'new' && setting.tagId == '') return { ...DEFAULT_SETTING.songList }
+  return setting
+}
+
 export const getSetting = async() => {
   return rendererInvoke<LX.AppSetting>(CMMON_EVENT_NAME.get_app_setting)
 }
@@ -265,7 +275,8 @@ export const saveLeaderboardSetting = (source: typeof DEFAULT_SETTING['leaderboa
   })
 }
 export const getLeaderboardSetting = async() => {
-  return (await rendererInvoke<string, typeof DEFAULT_SETTING['leaderboard']>(WIN_MAIN_RENDERER_EVENT_NAME.get_data, DATA_KEYS.leaderboardSetting)) ?? { ...DEFAULT_SETTING.leaderboard }
+  const setting = (await rendererInvoke<string, typeof DEFAULT_SETTING['leaderboard']>(WIN_MAIN_RENDERER_EVENT_NAME.get_data, DATA_KEYS.leaderboardSetting)) ?? { ...DEFAULT_SETTING.leaderboard }
+  return migrateLeaderboardSetting(setting)
 }
 export const saveSongListSetting = (setting: typeof DEFAULT_SETTING['songList']) => {
   rendererSend(WIN_MAIN_RENDERER_EVENT_NAME.save_data, {
@@ -274,7 +285,8 @@ export const saveSongListSetting = (setting: typeof DEFAULT_SETTING['songList'])
   })
 }
 export const getSongListSetting = async() => {
-  return (await rendererInvoke<string, typeof DEFAULT_SETTING['songList']>(WIN_MAIN_RENDERER_EVENT_NAME.get_data, DATA_KEYS.songListSetting)) ?? { ...DEFAULT_SETTING.songList }
+  const setting = (await rendererInvoke<string, typeof DEFAULT_SETTING['songList']>(WIN_MAIN_RENDERER_EVENT_NAME.get_data, DATA_KEYS.songListSetting)) ?? { ...DEFAULT_SETTING.songList }
+  return migrateSongListSetting(setting)
 }
 export const saveSearchSetting = (setting: typeof DEFAULT_SETTING['search']) => {
   rendererSend(WIN_MAIN_RENDERER_EVENT_NAME.save_data, {
